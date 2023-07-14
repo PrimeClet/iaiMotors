@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Circular Std';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-MediumItalic.eot/');
+    src: local('Circular Std Medium Italic'), local('CircularStd-MediumItalic'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-MediumItalic.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-MediumItalic.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-MediumItalic.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-MediumItalic.ttf/') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular Std';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-Black.eot/');
+    src: local('Circular Std Black'), local('CircularStd-Black'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Black.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Black.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Black.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Black.ttf/') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular Std';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-Medium.eot/');
+    src: local('Circular Std Medium'), local('CircularStd-Medium'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Medium.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Medium.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Medium.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Medium.ttf/') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular Std';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-Bold.eot/');
+    src: local('Circular Std Bold'), local('CircularStd-Bold'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Bold.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Bold.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Bold.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Bold.ttf/') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular Std';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-BlackItalic.eot/');
+    src: local('Circular Std Black Italic'), local('CircularStd-BlackItalic'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BlackItalic.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BlackItalic.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BlackItalic.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BlackItalic.ttf/') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-BookItalic.eot/');
+    src: local('Circular Std Book Italic'), local('CircularStd-BookItalic'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BookItalic.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BookItalic.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BookItalic.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BookItalic.ttf/') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular Std';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-BoldItalic.eot/');
+    src: local('Circular Std Bold Italic'), local('CircularStd-BoldItalic'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BoldItalic.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BoldItalic.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BoldItalic.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-BoldItalic.ttf/') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: url('https://devsnews.com/template/gerez/gerez/assets/css/CircularStd-Book.eot/');
+    src: local('Circular Std Book'), local('CircularStd-Book'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Book.eot/#iefix') format('embedded-opentype'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Book.woff2/') format('woff2'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Book.woff/') format('woff'),
+        url('https://devsnews.com/template/gerez/gerez/assets/font/CircularStd-Book.ttf/') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
