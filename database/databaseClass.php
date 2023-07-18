@@ -2,10 +2,10 @@
 
 class databaseClass
 {
-    private $server = "";
-    private $database = "";
+    private $server = "localhost";
+    private $database = "iai_motors";
     private $password = "";
-    private $username = "";
+    private $username = "root";
     private $pdo;
 
     /**
