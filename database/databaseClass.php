@@ -3,7 +3,7 @@
 class databaseClass
 {
     private $server = "localhost";
-    private $database = "iai_motors";
+    private $database = "iaimotors";
     private $password = "";
     private $username = "root";
     private $pdo;
@@ -14,13 +14,13 @@ class databaseClass
      * @param string $username
      * @param string $server
      */
-    public function __construct(string $server, string $database, string $username, string $password)
-    {
-        $this->database = $database;
-        $this->password = $password;
-        $this->username = $username;
-        $this->server = $server;
-    }
+//    public function __construct(string $server, string $database, string $username, string $password)
+//    {
+//        $this->database = $database;
+//        $this->password = $password;
+//        $this->username = $username;
+//        $this->server = $server;
+//    }
 
     public function databaseConnect() {
         try {
