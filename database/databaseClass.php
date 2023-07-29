@@ -22,6 +22,9 @@ class databaseClass
 //        $this->server = $server;
 //    }
 
+    /**
+     * @return PDO|void
+     */
     public function databaseConnect() {
         try {
             if ($this->pdo === null) {

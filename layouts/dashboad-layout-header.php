@@ -300,13 +300,8 @@
             </a>
             <ul id="direction-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
+                    <a href="<?= $path; ?>views/administration/directions-liste.php">
                         <i class="bi bi-circle"></i><span>Liste des Directions</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Ajouter une Direction</span>
                     </a>
                 </li>
             </ul>
@@ -318,12 +313,12 @@
             </a>
             <ul id="service-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
+                    <a href="<?= $path; ?>views/administration/services-liste.php">
                         <i class="bi bi-circle"></i><span>Liste des Services</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?= $path; ?>views/administration/service-ajout.php">
                         <i class="bi bi-circle"></i><span>Ajouter un Service</span>
                     </a>
                 </li>
@@ -354,13 +349,8 @@
             </a>
             <ul id="pannes-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Liste des Pannes</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Nouvelle Panne</span>
+                    <a href="<?= $path; ?>views/administration/pannes-management.php">
+                        <i class="bi bi-circle"></i><span>Gestions Pannes des Pannes</span>
                     </a>
                 </li>
             </ul>
@@ -372,13 +362,8 @@
             </a>
             <ul id="taches-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Liste des Tâches</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Nouvelle Tâche</span>
+                    <a href="<?= $path; ?>views/administration/taches-management.php">
+                        <i class="bi bi-circle"></i><span>Gestion des Tâches</span>
                     </a>
                 </li>
             </ul>
@@ -390,13 +375,8 @@
             </a>
             <ul id="solutions-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Liste des Solutions</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Nouvelle Solution</span>
+                    <a href="<?= $path; ?>views/administration/solutions-management.php">
+                        <i class="bi bi-circle"></i><span>Gestion des Solutions</span>
                     </a>
                 </li>
             </ul>

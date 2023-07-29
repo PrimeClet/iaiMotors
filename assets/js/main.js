@@ -15,7 +15,7 @@
 		Mobile Menu
 	--------------------------------------*/
 
-	$('#mobile-menu-active').metisMenu();
+	// $('#mobile-menu-active').metisMenu();
 
 	$('#mobile-menu-active .has-dropdown > a').on('click', function (e) {
 		e.preventDefault();

@@ -5,7 +5,7 @@ class Employe
     public function getAllEmployes(){
         try {
             $db =  new databaseClass();
-            $rq  = "SELECT * FROM employer";
+            $rq  = "SELECT * FROM employer where status = 0";
             $donnees = $db->databaseConnect()->prepare($rq);
             $donnees->execute();
 
@@ -59,5 +59,23 @@ class Employe
         * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
         */
 
+    }
+
+    public function updateEmploye($requete, $data){
+        try {
+            $db =  new databaseClass();
+            $donnees = $db->databaseConnect()->prepare($requete);
+            $donnees->execute($data);
+            return true;
+
+        } catch (Exception $e) {
+            $_SESSION["alert"]['danger'] = "ERREUR SQL : ".$e->getMessage();
+
+            $this->sqlError = $e->getMessage();
+            return  $this->sqlError;
+        }
+        /*retourne toutes les  lignes de la requete
+        * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
+        */
     }
 }

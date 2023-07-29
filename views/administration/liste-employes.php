@@ -149,13 +149,13 @@
                                                 <a href="#" class="dataTable-sorter">service</a>
                                             </th>
                                             <th scope="col" data-sortable="" style="width: 15.0919%;">
-                                                <a href="#" class="dataTable-sorter">actions</a>
+                                                <a href="">actions</a>
                                             </th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php foreach ($dataEmploye as $data) { ?>
-                                         <tr>
+                                         <tr <?php if($data->status === 0) { ?> >
                                             <th scope="row" style="vertical-align: middle;">
                                                 <a href="#"><?= $data->Matricule ?></a>
                                             </th>
@@ -167,6 +167,9 @@
                                                 <?php }?>
                                                 <?php if ($data->Categorie === "technicien" || $data->Categorie === "Technicien") { ?>
                                                     <span class="badge bg-warning text-dark"><?=$data->Categorie?></span>
+                                                <?php }?>
+                                                <?php if ($data->Categorie === "employe" || $data->Categorie === "Employe") { ?>
+                                                    <span class="badge bg-secondary text-dark"><?=$data->Categorie?></span>
                                                 <?php }?>
                                                 <?php if ($data->Categorie === "chef service" || $data->Categorie === "Chef Service") { ?>
                                                     <span class="badge bg-info text-dark"><?=$data->Categorie?></span>
@@ -181,17 +184,39 @@
                                             <td style="vertical-align: middle;">
                                                 <p class="d-flex gap-1">
                                                     <a href="employe-details.php?id=<?= $data->Id_employer ?>" class="btn btn-outline-success btn-sm"><i class="bi bi-eye-fill"></i></a>
-                                                    <a href=""  class="btn btn-outline-danger btn-sm"><i class="bi bi-person-x"></i></a>
-                                                    <a href=""  class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                                                    <button  class="btn btn-outline-danger btn-sm"><i class="bi bi-person-x" data-bs-toggle="modal" data-bs-target="#verticalycentered<?= $data->Id_employer ?>"></i></button>
+                                                    <a href="modifier-employe.php?id=<?= $data->Id_employer ?>"  class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil"></i></a>
                                                 </p>
                                             </td>
-                                        </tr>
+                                             <div class="modal fade" id="verticalycentered<?= $data->Id_employer ?>" tabindex="-1" aria-hidden="true" style="display: none;">
+                                                 <div class="modal-dialog modal-dialog-centered">
+                                                     <div class="modal-content">
+                                                         <div class="modal-header">
+                                                             <h5 class="modal-title">Supprimer employé</h5>
+                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                         </div>
+                                                         <div class="modal-body">
+                                                             <div class="d-flex flex-row align-items-center">
+                                                                 <img src="../../assets/images/remove.svg" alt="" class="mx-auto" width="50%" height="30%">
+                                                             </div>
+                                                             <br>
+                                                             <h2 class="my-3 text-center">Êtes-vous sûre de vouloir Supprimer?</h2>
+                                                         </div>
+                                                         <div class="modal-footer">
+                                                             <button type="button" id="close<?= $data->Id_employer ?>" class="btn btn-outline-primary" data-bs-dismiss="modal">Annuler</button>
+                                                             <button type="button" class="btn btn-outline-danger" onclick="supprimerUser(<?= $data->Id_employer ?>, '<?= $data->Categorie ?>', <?= $data->Id_service ?>, <?= $data->Id_direction ?>)">Supprimer</button>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+
+                                         </tr <?php } ?>>
                                         <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="dataTable-bottom">
-                                    <div class="dataTable-info">Showing 1 to 5 of 5 entries</div>
+                                    <div class="dataTable-info">Showing 1 to 10 of 12 entries</div>
                                     <nav class="dataTable-pagination">
                                         <ul class="dataTable-pagination-list"></ul>
                                     </nav>
@@ -208,3 +233,29 @@
     </section>
 </main>
 <?php require '../../layouts/dashboard-layout-footer.php' ?>
+<script>
+    function supprimerUser(data, categorie, service, direction) {
+        let id = "close"+data
+        datas = {
+            id: data,
+            categorie: categorie,
+            idService: service,
+            idDirection: direction
+        }
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "../../traitements/supprimerUser.php", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === XMLHttpRequest.DONE) {
+                if (xhttp.status === 200) {
+                    const response = JSON.parse(xhttp.responseText);
+                    document.getElementById(id).click();
+                    location.reload()
+                } else {
+                    console.error("Request failed:", xhttp.status);
+                }
+            }
+        };
+        xhttp.send(JSON.stringify(datas));
+    }
+</script>

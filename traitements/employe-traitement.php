@@ -31,7 +31,10 @@ if ($is_director === "oui"){
     $insert = $employes->insertEmploye($dataEmploye);
     //update-request
     $rq = "UPDATE direction SET Id_employer = ? WHERE Id_direction = ?";
-    $update = $directions->updateDirection($rq, $direction, $id);
+    $data = [
+        $id, $direction
+    ];
+    $update = $directions->updateDirection($rq, $data);
     if ($insert && $update) {
         $_SESSION['notification-type'] = "success";
         $_SESSION['notification-message'] = "Employé enregistré avec Succès";

@@ -1,11 +1,14 @@
 <?php
 
-class direction
+class Solution
 {
-    public function getAllDirections(){
+    /**
+     * @return array|false
+     */
+    public function getAllSolutions(){
         try {
             $db =  new databaseClass();
-            $rq  = "SELECT * FROM direction";
+            $rq  = "SELECT * FROM solution";
             $donnees = $db->databaseConnect()->prepare($rq);
             $donnees->execute();
 
@@ -14,19 +17,20 @@ class direction
 
             $this->sqlError = $e->getMessage();
         }
-        /*retourne toutes les  lignes de la requete
-        * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
-        */
         return $donnees->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getDirection($data){
+    /**
+     * @param $data
+     * @return array|false
+     */
+    public function getSolution($data){
         try {
             $datas = [
-              $data
+                $data
             ];
             $db =  new databaseClass();
-            $rq  = "SELECT * FROM direction WHERE Id_direction = ?";
+            $rq  = "SELECT * FROM solution WHERE Id_solution = ?";
             $donnees = $db->databaseConnect()->prepare($rq);
             $donnees->execute($datas);
 
@@ -35,13 +39,36 @@ class direction
 
             $this->sqlError = $e->getMessage();
         }
-        /*retourne toutes les  lignes de la requete
-        * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
-        */
         return $donnees->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function updateDirection($requete, $data){
+    /**
+     * @param $requete
+     * @param $data
+     * @return bool|string
+     */
+    public function insertData($requete, $data){
+        try {
+            $db =  new databaseClass();
+            $donnees = $db->databaseConnect()->prepare($requete);
+            $donnees->execute($data);
+            return true;
+
+        } catch (Exception $e) {
+            $_SESSION["alert"]['danger'] = "ERREUR SQL : ".$e->getMessage();
+
+            $this->sqlError = $e->getMessage();
+            return $this->sqlError;
+        }
+
+    }
+
+    /**
+     * @param $requete
+     * @param $data
+     * @return bool|string
+     */
+    public function updateSolution($requete, $data){
         try {
             $db =  new databaseClass();
             $donnees = $db->databaseConnect()->prepare($requete);
@@ -54,8 +81,5 @@ class direction
             $this->sqlError = $e->getMessage();
             return  $this->sqlError;
         }
-        /*retourne toutes les  lignes de la requete
-        * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
-        */
     }
 }

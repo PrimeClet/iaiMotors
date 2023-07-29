@@ -1,11 +1,16 @@
 <?php
+$path  = $_SESSION['path'];
+require_once $path.'database/databaseClass.php';
 
-class direction
+class Panne
 {
-    public function getAllDirections(){
+    /**
+     * @return void
+     */
+    public function getAllPannes(){
         try {
             $db =  new databaseClass();
-            $rq  = "SELECT * FROM direction";
+            $rq  = "SELECT * FROM panne";
             $donnees = $db->databaseConnect()->prepare($rq);
             $donnees->execute();
 
@@ -14,19 +19,20 @@ class direction
 
             $this->sqlError = $e->getMessage();
         }
-        /*retourne toutes les  lignes de la requete
-        * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
-        */
         return $donnees->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getDirection($data){
+    /**
+     * @param $data
+     * @return array|false
+     */
+    public function getPanne($data){
         try {
             $datas = [
-              $data
+                $data
             ];
             $db =  new databaseClass();
-            $rq  = "SELECT * FROM direction WHERE Id_direction = ?";
+            $rq  = "SELECT * FROM panne WHERE Id_panne = ?";
             $donnees = $db->databaseConnect()->prepare($rq);
             $donnees->execute($datas);
 
@@ -35,13 +41,36 @@ class direction
 
             $this->sqlError = $e->getMessage();
         }
-        /*retourne toutes les  lignes de la requete
-        * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
-        */
         return $donnees->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function updateDirection($requete, $data){
+    /**
+     * @param $requete
+     * @param $data
+     * @return bool|string
+     */
+    public function insertPanne($requete, $data){
+        try {
+            $db =  new databaseClass();
+            $donnees = $db->databaseConnect()->prepare($requete);
+            $donnees->execute($data);
+            return true;
+
+        } catch (Exception $e) {
+            $_SESSION["alert"]['danger'] = "ERREUR SQL : ".$e->getMessage();
+
+            $this->sqlError = $e->getMessage();
+            return $this->sqlError;
+        }
+
+    }
+
+    /**
+     * @param $requete
+     * @param $data
+     * @return bool|string
+     */
+    public function updatePanne($requete, $data){
         try {
             $db =  new databaseClass();
             $donnees = $db->databaseConnect()->prepare($requete);
@@ -54,8 +83,5 @@ class direction
             $this->sqlError = $e->getMessage();
             return  $this->sqlError;
         }
-        /*retourne toutes les  lignes de la requete
-        * PDO::FETCH_ASSOC precise qu'on veut le resultat avec seulement les noms de colonnes
-        */
     }
 }
